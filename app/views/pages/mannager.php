@@ -23,14 +23,13 @@
     <!-- Libraries Stylesheet -->
     <link href="/xampp/app/views/assets/lib/animate/animate.min.css" rel="stylesheet">
     <link href="/xampp/app/views/assets/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="/xampp/app/views/assets/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Template Stylesheet -->
     <link href="/xampp/app/views/assets/css/style.css" rel="stylesheet">
-
-
 </head>
 
 <body>
@@ -42,11 +41,12 @@
     </div>
     <!-- Spinner End -->
 
+    
 
     <!-- Navbar Start -->
     <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
         <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
-            <h2 class="m-0 text-primary"><i class="fa fa-book me-3"></i>eLEARNING</h2>
+            <h2 class="m-0 text-primary"><i class="fa fa-book me-3"></i>Admin</h2>
         </a>
         <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
@@ -70,3 +70,55 @@
         </div>
     </nav>
     <!-- Navbar End -->
+
+<div class="container my-4">
+    <h2 class="mb-4">📚 Danh sách khóa học</h2>
+   <div class="d-flex justify-content-end mb-3">
+   <a href="/xampp/public/add_courses.php" class="btn btn-success">
+        ➕ Thêm khóa học mới
+    </a>
+</div>
+    <table class="table table-bordered table-hover align-middle text-center">
+        <thead class="table-primary">
+            <tr>
+                <th>ID</th>
+                <th>Tiêu đề</th>
+                <th>Giá</th>
+                <th>⭐ Sao</th>
+                <th>🎯 Đánh giá</th>
+                <th>👨‍🏫 Giảng viên</th>
+                <th>⏱️ Thời lượng</th>
+                <th>👥 Học viên</th>
+                <th>🖼️ Ảnh</th>
+                <th>📄 Mô tả</th>
+                <th>⚙️ Tùy chọn</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($courses as $course): ?>
+                <tr>
+                    <td><?= $course['id'] ?></td>
+                    <td><?= htmlspecialchars($course['title']) ?></td>
+                    <td class="text-success fw-bold">$<?= number_format($course['price'], 2) ?></td>
+                    <td><?= $course['rating'] ?></td>
+                    <td><?= $course['total_reviews'] ?></td>
+                    <td><?= htmlspecialchars($course['instructor_name']) ?></td>
+                    <td><?= $course['duration'] ?></td>
+                    <td><?= $course['student_count'] ?></td>
+                    <td>
+                        <img src="<?= htmlspecialchars($course['image_path']) ?>" alt="Ảnh khóa học" width="80" class="img-thumbnail">
+                    </td>
+                    <td class="text-start"><?= nl2br(htmlspecialchars($course['description'])) ?></td>
+                    <td>
+                        <a href="/xampp/public/add_courses.php?id=<?= $course['id'] ?>" class="btn btn-sm btn-warning mb-1">✏️ Sửa</a>
+
+                        <a href="?delete=<?= $course['id'] ?>" class="btn btn-sm btn-danger" onclick="return confirm('Bạn có chắc muốn xóa?')">🗑️ Xóa</a>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+            
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

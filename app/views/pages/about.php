@@ -1,5 +1,5 @@
 <!-- Header Start -->
-    <div id="about" class="container-fluid bg-primary py-5 mb-5 page-header">
+    <!-- <div id="about" class="container-fluid bg-primary py-5 mb-5 page-header">
         <div class="container py-5">
             <div class="row justify-content-center">
                 <div class="col-lg-10 text-center">
@@ -14,12 +14,12 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- Header End --> 
     
     
     <!-- Service Start -->
-    <div  class="container-xxl py-5">
+    <!-- <div  class="container-xxl py-5">
         <div class="container">
             <div class="row g-4">
                 <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
@@ -60,7 +60,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- Service End -->
 
 
